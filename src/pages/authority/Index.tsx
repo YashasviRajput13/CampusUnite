@@ -64,6 +64,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { Chatbot } from "@/components/Chatbot";
+import { 
+  AIAssistantCard, 
+  PredictEngagementCard, 
+  TrendSummaryCard, 
+  TopEventsCard 
+} from "@/components/authority/AIFeatures";
 
 // Mock Data
 const events = [
@@ -728,6 +735,19 @@ const Index = ({ onLogout }: { onLogout?: () => void }) => {
                       </PieChart>
                     </ResponsiveContainer>
                   </Card>
+
+                  {/* New AI Features Section */}
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold">AI-Powered Insights</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <AIAssistantCard />
+                      <PredictEngagementCard />
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <TrendSummaryCard />
+                      <TopEventsCard />
+                    </div>
+                  </div>
                 </motion.div>
               )}
 
@@ -1238,6 +1258,9 @@ const Index = ({ onLogout }: { onLogout?: () => void }) => {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Chatbot */}
+      <Chatbot type="authority" />
     </div>
   );
 };

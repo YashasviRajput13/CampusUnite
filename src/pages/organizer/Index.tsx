@@ -21,6 +21,7 @@ import {
 } from "react-icons/fi";
 import { LineChart, Line, PieChart, Pie, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import confetti from "canvas-confetti";
+import { Chatbot } from "@/components/Chatbot";
 
 const Index = ({ onLogout }: { onLogout?: () => void }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -694,48 +695,8 @@ const Index = ({ onLogout }: { onLogout?: () => void }) => {
           )}
         </AnimatePresence>
 
-        {/* AI Assistant Widget */}
-        <motion.div
-          className="fixed bottom-6 right-6 z-50"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.5, type: "spring", stiffness: 300, damping: 20 }}
-        >
-          <AnimatePresence>
-            {showAIAssistant && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                className="mb-4 bg-card rounded-2xl shadow-2xl p-6 w-80 border border-border"
-              >
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  AI Assistant
-                </h3>
-                <div className="space-y-3">
-                  <div className="bg-gradient-to-r from-[hsl(var(--gradient-teal))]/10 to-[hsl(var(--gradient-purple))]/10 p-3 rounded-lg">
-                    <p className="text-sm">💡 Try hosting an AI Bootcamp next week!</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-[hsl(var(--gradient-coral))]/10 to-[hsl(var(--gradient-blue))]/10 p-3 rounded-lg">
-                    <p className="text-sm">📈 Students interested in startups are trending.</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-[hsl(var(--gradient-pink))]/10 to-[hsl(var(--gradient-orange))]/10 p-3 rounded-lg">
-                    <p className="text-sm">🎯 Your engagement rate is 23% above average!</p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setShowAIAssistant(!showAIAssistant)}
-            className="w-14 h-14 bg-gradient-to-r from-[hsl(var(--gradient-teal))] to-[hsl(var(--gradient-purple))] text-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-3xl transition-all animate-float"
-          >
-            <FiMessageCircle className="w-6 h-6" />
-          </motion.button>
-        </motion.div>
+        {/* Chatbot */}
+        <Chatbot type="organizer" />
       </div>
     </div>
   );

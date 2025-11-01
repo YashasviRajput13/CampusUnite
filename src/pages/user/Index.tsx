@@ -5,10 +5,11 @@ import { toast } from "sonner";
 import { OnboardingModal } from "./OnboardingModal"; // FIXED: Changed from @/components/OnboardingModal
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
-import { AIAssistant } from "./AIAssistant";
 import { Dashboard } from "./Dashboard";
 import { BadgesPage } from "./BadgesPage";
 import { EventCard } from "./EventCard";
+import { Chatbot } from "@/components/Chatbot";
+import { AISearchBar } from "@/components/AISearchBar";
 import hackathonImage from "@/assets/hackathon-event.jpg";
 import musicFestImage from "@/assets/music-fest.jpg";
 import artWorkshopImage from "@/assets/art-workshop.jpg";
@@ -235,6 +236,13 @@ const Index = ({ onLogout, onboardingComplete, onOnboardingComplete }: IndexProp
                 <h1 className="text-4xl font-bold mb-2">For You ✨</h1>
                 <p className="text-muted-foreground">AI-curated events based on your interests</p>
               </div>
+              
+              {/* AI Search Bar */}
+              <AISearchBar onSearch={(query) => {
+                toast.success(`Searching for: ${query}`);
+                // Filter logic would go here
+              }} />
+              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {aiRecommendedEvents.map(event => (
                   <EventCard
@@ -310,9 +318,25 @@ const Index = ({ onLogout, onboardingComplete, onOnboardingComplete }: IndexProp
                                     </>
                                   )}
                                 </Button>
-                                <Button variant="outline" size="sm">
-                                  Add to Calendar
-                                </Button>
+                                 <Button 
+                                   variant="outline" 
+                                   size="sm"
+                                   onClick={() => {
+                                     const calendarEvent = {
+                                       id: event.id,
+                                       title: event.title,
+                                       date: event.date,
+                                       location: event.location,
+                                       description: event.tags.join(', ')
+                                     };
+                                     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(calendarEvent.title)}&dates=${encodeURIComponent(calendarEvent.date.replace(/[^0-9]/g, ''))}/${encodeURIComponent(calendarEvent.date.replace(/[^0-9]/g, ''))}&details=${encodeURIComponent(calendarEvent.description)}&location=${encodeURIComponent(calendarEvent.location)}`;
+                                     window.open(url, '_blank');
+                                     toast.success('Opening Google Calendar...');
+                                   }}
+                                 >
+                                   <Calendar className="w-4 h-4 mr-2" />
+                                   Add to Calendar
+                                 </Button>
                               </div>
                             </div>
                           </div>
@@ -400,7 +424,7 @@ const Index = ({ onLogout, onboardingComplete, onOnboardingComplete }: IndexProp
         </main>
       </div>
 
-      <AIAssistant />
+      <Chatbot type="student" />
     </div>
   );
 };
