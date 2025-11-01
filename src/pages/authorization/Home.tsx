@@ -6,7 +6,13 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* 3D Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute w-[120%] h-[120%] top-0 left-0 bg-gradient-to-r from-primary/40 via-blue-500/30 to-accent/40 opacity-70 blur-3xl animate-pulse" />
+        <div className="absolute w-[100%] h-[100%] bottom-0 right-0 bg-gradient-to-br from-secondary/40 via-accent/30 to-primary/40 opacity-70 blur-2xl animate-[float_10s_ease-in-out_infinite]" />
+      </div>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10" />
@@ -27,13 +33,13 @@ const Home = () => {
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Campus Unite uses AI to recommend events tailored to your interests. 
-              Discover workshops, hackathons, and activities that matter to you.
+              Discover workshops, hackathons and activities that matter to you.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground text-lg px-8 py-6 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+                className="bg-gradient-to-r from-primary via-blue-500 to-primary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground text-lg px-8 py-6 rounded-2xl hover:scale-105 transition-transform shadow-lg"
                 onClick={() => navigate("/auth")}
               >
                 Get Started
@@ -52,8 +58,8 @@ const Home = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
             {[
-              { label: "Active Events", value: "500+", icon: Calendar },
-              { label: "Students", value: "10K+", icon: Users },
+              { label: "Active Events", value: "50+", icon: Calendar },
+              { label: "Colleges", value: "10K+", icon: Users },
               { label: "Accuracy", value: "95%", icon: TrendingUp },
               { label: "AI Matches", value: "50K+", icon: Brain },
             ].map((stat, i) => (
@@ -88,14 +94,14 @@ const Home = () => {
               },
               {
                 icon: Zap,
-                title: "Smart Notifications",
-                description: "Get notified about events at the perfect time",
+                title: "AI Recommendation Model",
+                description: "Personalizes event discovery with intelligent insights",
                 color: "text-accent"
               },
               {
                 icon: Sparkles,
-                title: "Campus Buddy",
-                description: "AI chatbot answers questions and helps you discover events",
+                title: "AI-Powered Search Engine",
+                description: "Smarter results. Faster discovery.",
                 color: "text-primary"
               },
             ].map((feature, i) => (
@@ -118,15 +124,12 @@ const Home = () => {
           <div className="max-w-4xl mx-auto bg-card rounded-3xl p-12 border shadow-lg relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5" />
             <div className="relative text-center space-y-6">
-              <h2 className="text-4xl font-bold">Ready to Transform Your Campus Experience?</h2>
-              <p className="text-xl text-muted-foreground">Join thousands of students discovering events they love</p>
-              <Button 
-                size="lg"
-                className="bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90 text-secondary-foreground text-lg px-8 py-6 rounded-2xl hover:scale-105 transition-transform shadow-lg"
-                onClick={() => navigate("/auth")}
-              >
-                Start Discovering Events
-              </Button>
+              <h2 className="text-4xl font-bold">
+                Ready to Transform Your Campus Experience?
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Join thousands of students discovering events they love
+              </p>
             </div>
           </div>
         </div>
