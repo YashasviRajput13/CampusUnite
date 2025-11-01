@@ -7,6 +7,9 @@ import userRoutes from './routes/userRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import testRoutes from './routes/testRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import recommendationRoutes from './routes/recommendationRoutes.js';
+import notificationRoutes from './routes/notificationRoutes.js';
+
 
 // Load environment variables
 dotenv.config();
@@ -42,6 +45,12 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.stack : {}
   });
 });
+
+// Recommendation routes
+app.use('/api/recommendations', recommendationRoutes);
+
+// Notification routes
+app.use('/api/notifications', notificationRoutes);
 
 // 404 handler
 app.use((req, res) => {

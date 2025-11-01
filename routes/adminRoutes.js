@@ -34,9 +34,8 @@ const router = express.Router();
 router.use(protect);
 router.use(admin);
 
-// ============================================
 // DASHBOARD OVERVIEW (ANALYTICS)
-// ============================================
+
 router.get('/dashboard', getDashboardStats);
 router.get('/analytics/rsvps', getRSVPChart);
 router.get('/analytics/categories', getCategoryDistribution);

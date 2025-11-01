@@ -577,9 +577,7 @@ export const deleteEvent = async (req, res) => {
   }
 };
 
-// ============================================
 // REPORTS & INSIGHTS
-// ============================================
 
 // @desc    Get most popular time for events
 // @route   GET /api/admin/reports/popular-times
