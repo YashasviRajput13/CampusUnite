@@ -14,7 +14,239 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      event_bookmarks: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_bookmarks_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "event_bookmarks_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      event_rsvps: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_rsvps_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "event_rsvps_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      event_views: {
+        Row: {
+          event_id: string
+          id: string
+          user_id: string
+          viewed_at: string
+        }
+        Insert: {
+          event_id: string
+          id?: string
+          user_id: string
+          viewed_at?: string
+        }
+        Update: {
+          event_id?: string
+          id?: string
+          user_id?: string
+          viewed_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_views_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "event_views_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          capacity: number | null
+          category: string
+          created_at: string
+          date: string
+          description: string
+          id: string
+          image_url: string | null
+          latitude: number | null
+          location: string
+          longitude: number | null
+          mode: string
+          organizer_id: string
+          price: number | null
+          rejection_reason: string | null
+          status: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          capacity?: number | null
+          category: string
+          created_at?: string
+          date: string
+          description: string
+          id?: string
+          image_url?: string | null
+          latitude?: number | null
+          location: string
+          longitude?: number | null
+          mode?: string
+          organizer_id: string
+          price?: number | null
+          rejection_reason?: string | null
+          status?: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          capacity?: number | null
+          category?: string
+          created_at?: string
+          date?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          latitude?: number | null
+          location?: string
+          longitude?: number | null
+          mode?: string
+          organizer_id?: string
+          price?: number | null
+          rejection_reason?: string | null
+          status?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_organizer_id_fkey"
+            columns: ["organizer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          academic_background: string | null
+          branch: string
+          college: string
+          created_at: string
+          dob: string | null
+          email: string
+          full_name: string
+          id: string
+          interests: string[]
+          phone: string | null
+          professional_goals: string | null
+          role: string
+          skills: string[] | null
+          updated_at: string
+          year: string
+        }
+        Insert: {
+          academic_background?: string | null
+          branch: string
+          college: string
+          created_at?: string
+          dob?: string | null
+          email: string
+          full_name: string
+          id: string
+          interests?: string[]
+          phone?: string | null
+          professional_goals?: string | null
+          role?: string
+          skills?: string[] | null
+          updated_at?: string
+          year: string
+        }
+        Update: {
+          academic_background?: string | null
+          branch?: string
+          college?: string
+          created_at?: string
+          dob?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          interests?: string[]
+          phone?: string | null
+          professional_goals?: string | null
+          role?: string
+          skills?: string[] | null
+          updated_at?: string
+          year?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
