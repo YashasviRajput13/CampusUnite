@@ -8,7 +8,7 @@ AI-powered event recommendation platform backend built with Node.js, Express, Mo
 - **JWT Authentication** - Secure user authentication and authorization
 - **MongoDB Atlas** - Cloud database with Mongoose ODM
 - **Express REST API** - Clean and organized API structure
-- **User Management** - User registration, login, and profile management
+- **User Management** - User registration,login, and profile management
 - **Event Management** - Full CRUD operations for events
 - **Organizer System** - Role-based access control for event organizers
 - **Protected Routes** - Middleware for secure API endpoints
@@ -150,6 +150,7 @@ TODO: Add contribution guidelines
 ## 📄 License
 
 ISC
+
 
 =======
 
