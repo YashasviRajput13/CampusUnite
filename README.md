@@ -2,7 +2,7 @@
 Campus Unite is an innovative web platform designed to bring together students, organizers, and authorities on a single digital campus network.
 It simplifies event coordination, complaint management, and communication to make campus life more organized, transparent, and interactive.
 
-🔗 Live Frontend: Campus Unite
+🔗 Live Frontend: [Campus Unite]([url](https://campus-unite-beta14.vercel.app/))
 
 🚀 Project Overview
 Campus Unite is a unified digital ecosystem for educational institutions.
@@ -98,3 +98,4 @@ Nikita Pandey:
 Madhavan Singh: 
 Yashaswi Singh:
 Aniket Chaturvedi: 
+
