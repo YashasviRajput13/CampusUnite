@@ -11,7 +11,7 @@ AI-powered event recommendation platform backend built with Node.js, Express, Mo
 - **User Management** - User registration,login, and profile management
 - **Event Management** - Full CRUD operations for events
 - **Organizer System** - Role-based access control for event organizers
-- **Protected Routes** - Middleware for secure API endpoints
+- **Protected Routes** - Middleware for secure API endpoint
 
 ## 📁 Project Structure
 
@@ -157,3 +157,4 @@ ISC
 
 **URL**: https://lovable.dev/projects/2f557f6f-08f5-47af-900a-d29812063be1
 >>>>>>> a3790d61389a4563d31547ab89deac42d6a93f86
+
