@@ -96,8 +96,9 @@ aniketchaturvewdi83@gmail.com
 Our LinkedIn profile's: 
 Nikita Pandey:
 Madhavan Singh: 
-Yashaswi Singh:
+Yashasvi Singh:https://www.linkedin.com/in/yashasvi-singh-492154319
 Aniket Chaturvedi: 
+
 
 
 
